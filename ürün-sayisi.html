@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arttır Azalt Egzersiz</title>
+</head>
+<body>
+    
+    <h3>Ürün miktarı: <b id="miktar"></b></h3>
+    <button id="increase">Arttır</button>
+    <button id="decrase">Azalt</button>
+
+    <script>
+   
+    let miktar = localStorage.getItem("miktar") ? Number(localStorage.getItem("miktar")) : 0
+    let miktarDOM = document.querySelector("#miktar")
+    let increaseDOM = document.querySelector("#increase")
+    let decraseDOM = document.querySelector("#decrase")
+
+    miktarDOM.innerHTML = miktar
+
+    increaseDOM.addEventListener("click",clickEvent)
+    decraseDOM.addEventListener("click",clickEvent)
+
+
+    function clickEvent(){
+        this.id=="increase" ?   miktarDOM.innerHTML = miktar +=1 :  miktarDOM.innerHTML = miktar-=1
+        localStorage.setItem("miktar", miktar)
+        miktarDOM.innerHTML = miktar
+
+ 
+    }
+
+
+    </script>
+</body>
+</html>
